@@ -1,14 +1,20 @@
-const express = require('express');
-const cors = require('cors');
-const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 
 dotenv.config();
+
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+
+const dbi = require('./config/dbi');
+
+const transactionsRouters = require('./routes/transactions.js');
 
 const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use('/api/transactions',transactionsRouters);
 
 
 //Crianco uma rota inicial 
