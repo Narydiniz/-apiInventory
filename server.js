@@ -14,7 +14,7 @@ const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use('/api/transactions',transactionsRouters);
+app.use('/api/products',transactionsRouters);
 
 
 //Crianco uma rota inicial 
