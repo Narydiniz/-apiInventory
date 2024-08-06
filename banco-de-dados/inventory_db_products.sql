@@ -31,9 +31,9 @@ CREATE TABLE `products` (
   `category` varchar(255) DEFAULT NULL,
   `price` decimal(10,2) DEFAULT NULL,
   `stock` int DEFAULT NULL,
-  `expriry_date` date DEFAULT NULL,
+  `expiry_date` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,6 +42,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
+INSERT INTO `products` VALUES (1,'Shampoo Sólido de Flor de Lima','Shampoo Sólido','Cabelo',44.90,10,'2025-01-31'),(2,'DESODORANTE - HEROS','DESODORANTE - HEROS','Corpo',41.90,8,'2025-02-24'),(3,'Creme de Barbear Black','Creme de Barbear','Barba',22.90,6,'2025-03-18'),(4,'Perfume para Interiores de Lavanda',' Perfume para Interiores','Casa',136.90,4,'2025-04-13'),(5,'Óleo de Copaíba',' Óleos Essenciais e Vegetais','Corpo',38.90,2,'2025-05-10'),(6,'Kit de Viagem Flor de Lima ','Kit capilar','Cabelo',83.90,9,'2025-06-11'),(7,'Kit Glamour B-Tox','Kit Capilar ','Cabelo',109.90,7,'2025-07-17'),(8,'Água de Beleza Rosa Mosqueta','Água fascial','Rosto',45.90,10,'2025-08-25');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-08-02  9:36:46
+-- Dump completed on 2024-08-06  7:06:01

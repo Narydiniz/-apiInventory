@@ -8,13 +8,13 @@ const bodyParser = require('body-parser');
 
 const dbi = require('./config/dbi');
 
-const transactionsRouters = require('./routes/transactions.js');
+const productsRouters = require('./routes/products.js');
 
 const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use('/api/products',transactionsRouters);
+app.use('/api/products',productsRouters);
 
 
 //Crianco uma rota inicial 
