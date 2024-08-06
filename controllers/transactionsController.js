@@ -28,8 +28,27 @@ const addTransaction = (req, res) => {
     );
    };
 
+   const updateTransactionsPut = (req,res) => {
+    const {id} = req.params;
+    const { name, description, category, price, stock, expiry_date } = req.body;
+    dbi.query(
+        'UPDATE SET name =?, description =?, category =?, price =?, stock =?, expiry_date =? WHERE id = ?',
+        [name, description, category, price, stock, expiry_date],
+        (err, results) =>{
+            if (err) {
+                console.error('Não foi possivel atualizar a atransação', err);
+                res.status(500).send('Erro! A transação não foi atualizada');
+            return;
+            }
+            res.send('Atualização concluida com sucesso!')
+        }
+    );
+   };
 
 module.exports = {
     getAllTransactions, 
-    addTransaction
+    addTransaction,
+    updateTransactionsPut
+    // updateTransactionPatch
 };
+
