@@ -1,4 +1,6 @@
-const dbi = require ('../config/dbi');
+const dbi = require ('../config/dbi'); // Importa a conxão com o banco de dados  
+
+//Função para obter todos os produtos (get)
 
 const getAllProducts = (req,res) =>{
     dbi.query('SELECT * FROM products',(err,results) => {
@@ -11,6 +13,8 @@ const getAllProducts = (req,res) =>{
         res.json(results);
     });
 };
+
+//Função para adicionar um novo produto (post)
 
 const addProducts = (req, res) => {
     const { name, description, category, price, stock, expiry_date } = req.body;
@@ -28,6 +32,8 @@ const addProducts = (req, res) => {
     );
    };
 
+//Função para atualizar completamente um produto (put)
+
    const updateProductsPut = (req,res) => {
     const {id} = req.params;
     const { name, description, category, price, stock, expiry_date } = req.body;
@@ -44,7 +50,7 @@ const addProducts = (req, res) => {
         }
     );
    };
-
+//Função para atualizar parcialmente um produto (patch)
    const updateProductsPatch = (req,res) =>{
     const {id} = req.params;
     const fields = req.body;
@@ -70,7 +76,7 @@ const addProducts = (req, res) => {
     );
     };
 
-
+//Função para deletar um produto (delete)
     const deleteProducts = (req, res) => {
         const {id} = req.params;
         dbi.query('DELETE FROM products WHERE id = ?', [id], (err,results) =>{
@@ -84,6 +90,7 @@ const addProducts = (req, res) => {
     }
 
 
+//Exporta todas as funções para que possam ser ultilizadas em outros arquivos   
 module.exports = {
     getAllProducts, 
     addProducts,
